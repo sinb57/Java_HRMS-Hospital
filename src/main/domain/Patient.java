@@ -4,18 +4,18 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Patient {
-    private Long patientId;
+    private String patientId;
     private String username;
     private String phoneNumber;
-    private ArrayList<Reservation> reservationList = new ArrayList<Reservation>(); // 예약 현황
-    private ArrayList<ReservationHistory> reservationHistoryList = new ArrayList<ReservationHistory>(); // 접수 내역
+    private ArrayList<Reservation> reservationList = new ArrayList<>(); // 예약 현황
+    private ArrayList<ReservationHistory> reservationHistoryList = new ArrayList<>(); // 접수 내역
     
-    public long getPatientId() {
+    public String getPatientId() {
     	return patientId;
     }
     
-    public boolean matches(long patientId) {
-    	if (this.patientId == patientId)
+    public boolean matches(String patientId) {
+    	if (this.patientId.contentEquals(patientId))
     		return true;
     	return false;
     }
@@ -30,41 +30,5 @@ public class Patient {
     }
     
 
-    private class ReservationHistory {
-    	private Long reservationId;
-    	private LocalDateTime reservationDay;
-    	private LocalDateTime reservationTime;
-    	private boolean careStatus;
-        private LocalDateTime careTime;
-        private boolean payStatus;
-        private LocalDateTime payTime;
-        
 
-
-        public boolean isCareStatus() {
-			return careStatus;
-		}
-		public void setCareStatus(boolean careStatus) {
-			this.careStatus = careStatus;
-		}
-		public LocalDateTime getCareTime() {
-			return careTime;
-		}
-		public void setCareTime(LocalDateTime careTime) {
-			this.careTime = careTime;
-		}
-		public boolean isPayStatus() {
-			return payStatus;
-		}
-		public void setPayStatus(boolean payStatus) {
-			this.payStatus = payStatus;
-		}
-		public LocalDateTime getPayTime() {
-			return payTime;
-		}
-		public void setPayTime(LocalDateTime payTime) {
-			this.payTime = payTime;
-		}
-    	
-    }
 }

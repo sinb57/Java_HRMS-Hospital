@@ -14,3 +14,20 @@ Patient와 Reservation은 파일입출력을 통해 로컬 정보(내역)를 불
 접수 내역, 납부 내역 보기
 환자 정보 보기 (이름, 연락처) -> 관련 접수 내역 표시
 접수 내역 검색 (검색어: 환자정보, 접수일자)
+
+HospitalService 메소드 구현시
+데이터 요청부분은 아래의 예시처럼 주석해놓고
+나머지 작성하시면 됩니다.
+
+public void searchHospital(String keyword) {
+    // 병원리스트 요청 후 데이터 저장
+    ArrayList<Hospital> hospitalList = new ArrayList<>();
+    hospitalList.add(hospitalExample1);
+    hospitalList.add(hospitalExample2);
+    hospitalList.add(hospitalExample3);
+
+    // 메소드 구현
+    ...
+    ...
+
+}    

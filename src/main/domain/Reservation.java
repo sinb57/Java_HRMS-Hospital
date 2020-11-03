@@ -23,7 +23,7 @@ public class Reservation {
 	
 	private int indexOf(Patient patient) {
 		int index = 0;
-		long patientId = 0;
+		String patientId = "";
 		
 		for (Patient reservationPatient: reservationPatientList) {
 			patientId = reservationPatient.getPatientId();

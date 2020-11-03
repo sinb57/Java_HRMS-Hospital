@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hospital {
-    private Long hospitalId;
+    private String hospitalId;
     private String name;
     private String phoneNumber;
     private String joinedDay;
