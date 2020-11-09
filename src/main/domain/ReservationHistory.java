@@ -10,9 +10,16 @@ public class ReservationHistory {
     private LocalDateTime careTime;
     private boolean payStatus;
     private LocalDateTime payTime;
+    private Patient patient;
     
-
-
+    public Patient getPatient() { return patient; }
+    public LocalDateTime getReservationDay() {return reservationDay;}
+    public String getPaid() {
+		return isPayStatus() ? "O" : "X";
+	}
+	
+    
+    
     public boolean isCareStatus() {
 		return careStatus;
 	}
