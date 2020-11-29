@@ -1,14 +1,13 @@
 package main.domain;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 
 public class Patient {
     private String patientId;
     private String patientName;
     private String phoneNumber;
-    private ArrayList<Reservation> reservationList = new ArrayList<>(); // 예약 현황
-    private ArrayList<ReservationHistory> reservationHistoryList = new ArrayList<>(); // 접수 내역
+    private ArrayList<Reservation> reservationList = new ArrayList<>();
     
     
     public boolean matches(String keyword) {
@@ -30,27 +29,6 @@ public class Patient {
 		reservationList.remove(reservation);
 	}
 	
-
-    public void addReservationHistory(ReservationHistory reservationHistory) {
-    	reservationHistoryList.add(reservationHistory);
-    }
-    
-	public void popReservationHistory(ReservationHistory reservationHistory) {
-		reservationHistoryList.remove(reservationHistory);
-	}
-	
-
-	
-	
-    public void moveReservationToHistory(Reservation reservation) {
-    	
-    	ReservationHistory reservationHistory = new ReservationHistory();
-
-    	reservationHistoryList.add(reservationHistory);
-    	
-    	reservationList.remove(reservation);
-    	
-    }
     
     public String getPatientId() {
     	return patientId;

@@ -19,7 +19,7 @@ public class SocketHandler {
 	
 	public StringTokenizer login(String userId, String userPw) {
 		
-		String requestData = "POST /auth/Login";
+		String requestData = "POST /auth/login";
 		requestData += "\n" + userId;
 		requestData += "\n" + userPw;
 		
@@ -48,11 +48,12 @@ public class SocketHandler {
 		return responseData;
 	}
 	
-	public boolean modifySelfPw(String token, String passwd) {
+	public boolean modifySelfPw(String cookie, String passwdFrom, String passwdTo) {
 		
 		String requestData = "PUT /auth/me";
-		requestData += "\n" + token;
-		requestData += "\n" + passwd;
+		requestData += "\n" + cookie;
+		requestData += "\n" + passwdFrom;
+		requestData += "\n" + passwdTo;
 		
 		StringTokenizer responseData = client.request(requestData);
 		
@@ -63,27 +64,14 @@ public class SocketHandler {
 		
 		return true;
 	}
-	
-
-	public StringTokenizer requestPatientInfo(String token, String patientId) {
-		
-		String requestData = "GET /patients/" + patientId;
-		requestData += "\n" + token;
-		
-		StringTokenizer responseData = client.request(requestData);
-		
-		String responseHeader = responseData.nextToken();
-		
-		if (responseHeader.equals("Get Patient Info Failed"))
-			return null;
-		
-		return responseData;
-	}
 
 	
-	public StringTokenizer requestReservationList(String token) {
-		String requestData = "GET /hospitals/reservations";
-		requestData += "\n" + token;
+	public StringTokenizer requestReservationList(String cookie, String reservationDateFrom, String reservationDateTo, String searchType, String keywords) {
+		String requestData = "GET /hospitals/reservations/list";
+		requestData += "\n" + cookie;
+		requestData += "\n" + reservationDateFrom + " " + reservationDateTo;
+		requestData += "\n" + searchType;
+		requestData += "\n" + keywords;
 
 		StringTokenizer responseData = client.request(requestData);
 		
@@ -95,18 +83,49 @@ public class SocketHandler {
 		return responseData;
 	}
 	
-	public StringTokenizer deleteReservation(String token, String patientId) {
+	public StringTokenizer requestReservationListOfPatient(String cookie, String patientId) {
+		String requestData = "GET /hospitals/reservations/list/" + patientId;
+		requestData += "\n" + cookie;
+
+		StringTokenizer responseData = client.request(requestData);
+		
+		String responseHeader = responseData.nextToken();
+		
+		if (responseHeader.equals("Get Reservation List Failed"))
+			return null;
+		
+		return responseData;
+	}
+	
+	public boolean processReservation(String cookie, String patientId, String reservationDate, String reservationTime, String docterName) {
+		String requestData = "POST /hospitals/reservations/" + patientId;
+		requestData += "\n" + cookie;
+		requestData += "\n" + reservationDate;
+		requestData += "\n" + reservationTime;
+		requestData += "\n" + docterName;
+		
+		StringTokenizer responseData = client.request(requestData);
+		
+		String responseHeader = responseData.nextToken();
+		
+		if (responseHeader.contentEquals("Process Reservation Failed"))
+			return false;
+		
+		return true;
+	}
+	
+	public boolean cancelReservation(String cookie, String patientId, String reservationDate, String reservationTime) {
 
 		String requestData = "DELETE /hospitals/reservations/" + patientId;
-		requestData += "\n" + token;
+		requestData += "\n" + cookie;
 
 		StringTokenizer responseData = client.request(requestData);
 
 		String responseHeader = responseData.nextToken();
 		
-		if (responseHeader.equals("DELETE Reservation Failed"))
-			return null;
+		if (responseHeader.equals("Delete Reservation Failed"))
+			return false;
 		
-		return responseData;
+		return true;
 	}
 }
