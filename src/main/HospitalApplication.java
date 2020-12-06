@@ -1,23 +1,17 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import main.page.PageHandler;
 
-import main.domain.Reservation;
-import main.service.HospitalService;
-
-// GUI Class
 public class HospitalApplication {
-	private HospitalService service = new HospitalService();
 
 	public void run() {
-		Scanner scanner = new Scanner(System.in);
-
+		PageHandler pageHandler = new PageHandler();
+		pageHandler.start();
 	}
-	
-	public static void main(String[] args) {		
-    	HospitalApplication app = new HospitalApplication();
-    	app.run();
+
+	public static void main(String[] args) {
+		HospitalApplication app = new HospitalApplication();
+		app.run();
 
 	}
 
