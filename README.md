@@ -1,4 +1,4 @@
-# :hospital: 병원 예약 관리 시스템 - Patient Application
+# :hospital: 병원 예약 관리 시스템 - Hospital Application
 ### # 프로젝트 소개 -> ([Github: HRMS Introduction](https://github.com/sinb57/HRMS-Introduction))
 ## :book: 목차
 * <a href="#head1">프로젝트 설계</a>
@@ -41,7 +41,7 @@
 - 병원 정보를 확인할 수 있다.
   (병원명, 아이디, 연락처, 주소, 진료과목-진료의, 진료시간)
 - 비밀번호를 새로운 비밀번호로 변경할 수 있다.
-
+</br>
 
 ## <p id="head12"></p> :iphone: UI 프로토타이핑
 https://ovenapp.io/view/d7EGZyZMk396toITmyVzcZpHqFIS0LRr/
