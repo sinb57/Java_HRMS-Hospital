@@ -1,75 +1,68 @@
-# :hospital: 병원 예약 관리 시스템, 거긴 어때
+# :hospital: 병원 예약 관리 시스템 - Patient Application
+### # 프로젝트 소개 -> ([Github: HRMS Introduction](https://github.com/sinb57/HRMS-Introduction))
+## :book: 목차
+* <a href="#head1">프로젝트 설계</a>
+  * <a href="#head11">주요기능 요구사항</a>
+  * <a href="#head12">UI 프로토타이핑</a>
+</br>
 
-## :pushpin: 프로젝트 소개
-언택트 시대에 따른 비대면 시스템!! 보다 편한 예약과 한 눈에 볼 수 있는 시스템이 없을까?
+***
+## <p id="head1"></p>:pushpin: 프로젝트 설계
+### <p id="head11"></p> :label: 주요기능 요구사항
+#### 1. 로그인
+- 어플리케이션 실행 시 로그인을 요구한다.
+  (로그인이 인증된 사용자만이 서비스를 사용할 수 있다.)
+- 계정이 없을 시 회원가입을 통해 계정 생성을 할 수 있다.
 
-호텔스 컴바인, 배달의 민족 등과 같이 한눈에 알아보는 병원 예약 관리 시스템입니다.
+#### 2. 회원가입
+- 병원 인증을 위해 회원가입은 시스템 관리자를 통해
+  이뤄지는 것이 옳다고 생각하여 기능을 제외함.
+  (추후 회원가입 기능 추가 시, 관리자 인증을 요구하도록 설계할 것)
 
-### :point_right: 차별화 포인트
-- 예약 접수 시 증상 입력을 통해 병원에 사전 알림
-- 사용자의 편의성을 위해 고객은 어플리케이션, 병원은 데스크탑 형태로 제작
+#### 3. 대기 현황
+- 현재시각을 기준으로 대기자 현황을 확인할 수 있다.
+- 처리 버튼 클릭 시 해당 대기자의 진료를 처리/기록할 수 있다.
+  (진료를 진행한 전문의를 선택해야 한다.)
+- 취소 버튼 클릭 시 해당 대기자의 예약을 취소할 수 있다.
 
-## :calendar: 프로젝트 기간
-2020.10 ~ 2020.12
+#### 4. 진료 기록
+- 시작일~종료일 기간을 지정하여 진료기록을 조회할 수 있다.
+- 아래 항목을 선택하여 진료 기록을 진행할 수 있다.
+  (이름, 연락처, 진료 의사, 진료 시간)
+- '자세히' 버튼을 클릭하여 특정 환자의 진료기록을 상세히 볼 수 있다.
 
-## :family: 팀원 소개
-- 송인봉: https://github.com/sinb57
-- 박준형: https://github.com/oopsys6
+#### 5. 진료 기록 상세 보기
+- 환자의 이름과 연락처를 볼 수 있다.
+- 선택한 진료 기록에 대하여 다음 정보를 확인할 수 있다.
+  (진료 일시, 진료 과목, 진료의, 증상)
+- 해당 환자의 다른 진료 기록을 확인할 수 있다.
 
-## :books: 기술 스택
-- <b>FRONT-END</b>: Java Swing
-- <b>BACK-END</b>: Java, Python(data crawling)
-- <b>ETC</b>: Github
-
-## :computer: VIEW
-
-### :boy: 환자 UI
-- #### 로그인, 회원가입
-![](https://i.imgur.com/MFnLcid.png)
-<br>
-- #### 병원 리스트
-![](https://i.imgur.com/mEbarI8.png)
-![](https://i.imgur.com/ShnEvGl.png)
-<br>
-- #### 병원 정보
-![](https://i.imgur.com/JE01clL.png)
-<br>
-- #### 예약 접수
-![](https://i.imgur.com/Qf9RJVY.png)
-<br>
-- #### 예약 리스트
-![](https://i.imgur.com/7VBvBUW.png)
-<br>
-- #### 예약 정보
-![](https://i.imgur.com/KhLdXJl.png)
-<br>
-- #### 개인 정보, 비밀번호 변경
-![](https://i.imgur.com/Vej3MbQ.png)
-<br>
-
-### :hospital: 병원 UI
-- #### 로그인
-![](https://i.imgur.com/eVJmqh3.png)
-<br>
-- #### 대기 현황
-![](https://i.imgur.com/8wL3Mrd.png)
-<br>
-- #### 진료 기록
-![](https://i.imgur.com/mVBzInH.png)
-<br>
-- #### 진료 기록 자세히
-![](https://i.imgur.com/1u5fixG.png)
-<br>
-- #### 병원 정보
-![](https://i.imgur.com/VC7tRwW.png)
-<br>
-- #### 병원 비밀번호 변경
-![](https://i.imgur.com/j3Rff85.png)
+#### 6. 병원 정보
+- 병원 정보를 확인할 수 있다.
+  (병원명, 아이디, 연락처, 주소, 진료과목-진료의, 진료시간)
+- 비밀번호를 새로운 비밀번호로 변경할 수 있다.
 
 
-### 함께 한 GIT REPOSITORY
-- https://github.com/oopsys6/Java_HRMS-Hospital_GUI
-- https://github.com/oopsys6/Java_HRMS-Patient_GUI
-- https://github.com/sinb57/Java_HRMS-Server
-- https://github.com/sinb57/Java_HRMS-Hospital
-- https://github.com/sinb57/Java_HRMS-Patient
+## <p id="head12"></p> :iphone: UI 프로토타이핑
+https://ovenapp.io/view/d7EGZyZMk396toITmyVzcZpHqFIS0LRr/
+#### 1. 로그인 / 회원가입
+![](https://imgur.com/al9IS5E.png)
+
+#### 2. 대기 현황
+![](https://imgur.com/C7odJy8.png)
+
+#### 3. 진료 기록
+![](https://imgur.com/C7odJy8.png)
+
+#### 4. 진료 기록 상세 보기
+![](https://imgur.com/MsD8qTd.png)
+
+#### 5. 병원 정보
+![](https://imgur.com/vKeOyrU.png)
+![](https://imgur.com/z2j0DPI.png)
+</br>
+</br>
+
+
+</br>
+</br>
